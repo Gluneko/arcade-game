@@ -1,14 +1,14 @@
 // Enemies our player must avoid
-var Enemy = function(row,speed) {
+var Enemy = function(row) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x=202;
+    this.x=Math.random()*1010-505;
     this.y=row*83-23;
-    this.speed=speed;
+    this.speed=1+Math.round(Math.random());
 };
 
 // Update the enemy's position, required method for game
@@ -18,9 +18,22 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if(this.x>505){
-        this.x=-101;
+        this.x=Math.random()*505-1010;
+        this.speed=1+Math.round(Math.random());
     }
-    this.x+=this.speed*100*dt;
+    this.x+=this.speed*300*dt;
+    var rect1=player;
+    var rect2=this;
+    //dectect collsion between enemy and player
+        if (rect1.x + 18 +10< rect2.x + 99 &&
+       rect1.x + 18+67 -20> rect2.x &&
+       rect1.y + 63 +28< rect2.y +78+ 66 &&
+       -28+77 + rect1.y + 63 > rect2.y +78) {
+        // collision detected!
+        player.reset(false);
+    }
+    // console.log(this.x);
+    // console.log(rect2.y);
 };
 
 // Draw the enemy on the screen, required method for game
@@ -33,31 +46,18 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player=function() {
     this.sprite = 'images/char-boy.png';
+    this.hpPic=
     this.x=202;
-    this.y=5*83-40;
+    this.y=5*83-27;
+    this.hp=3;
+    this.score=0;
 }
 
 Player.prototype.update = function() {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    var rect1=this;
-    allEnemies.forEach(function(rect2){
-        if (rect1.x + 27 < rect2.x + 101 &&
-       rect1.x + 27+56 > rect2.x &&
-       rect1.y + 63 < rect2.y +78+ 66 &&
-       76 + rect1.y + 63 > rect2.y +66) {
-        // collision detected!
-        rect1.x=202;
-        rect1.y=5*83-40;
-        console.log('yeah');
-    }
-    else{
-        // console.log('np');
-    }
-    // console.log(this.x);
-    // console.log(rect2.y);
-    });
+
 
 
 };
@@ -80,12 +80,14 @@ Player.prototype.handleInput = function(key) {
         }
             break;
         case 'up':
-        if(this.y>=126){
+        if(this.y>56){
             this.y-=83;// move up
+        }else{
+            this.reset(true);// The player reaches the water so move the player back to the initial location
         }
             break;
         case 'down':
-            if(this.y<=292){
+            if(this.y<=305){
                 this.y+=83;// move right
             }
             break;
@@ -94,10 +96,23 @@ Player.prototype.handleInput = function(key) {
             break;
     }
 }
+
+Player.prototype.reset=function(win){
+    if(win){
+        this.score+=100;
+    }else{
+        this.hp-=1;
+        if(this.hp==0){
+            console.log('you lose');
+        }
+    }
+    this.x=202;
+    this.y=5*83-27;
+}
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies=[new Enemy(1,1),new Enemy(2,2),new Enemy(3,1)];
+var allEnemies=[new Enemy(1),new Enemy(1),new Enemy(2),new Enemy(2),new Enemy(3),new Enemy(3)];
 var player=new Player();
 
 // This listens for key presses and sends the keys to your
