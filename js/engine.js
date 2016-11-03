@@ -24,7 +24,7 @@ var level1=function(){
     }
      /*Second Row */
     for (col = 0; col < 4; col++) {
-        drawWater(col*101,116);
+        drawWater(col*101,125);
     }
     for (col = 4; col < 6; col++) {
         ctx.drawImage(Resources.get('images/Dirt Block.png'), col * 101, 116);
@@ -81,7 +81,57 @@ var level1=function(){
 }
 
 var level2=function() {
+    for (col = 0; col < 6; col++) {
+        drawWater(col*101,-30);
+    }
+    /*First Row */
+    for (col = 0; col < 6; col++) {
+        ctx.drawImage(Resources.get('images/Dirt Block.png'), col * 101, 53);
+    }
+    /*Second Row */
+    for (col = 0; col < 6; col++) {
+        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 136);
+    }
+    ctx.drawImage(Resources.get('images/Rock.png'), 1 * 101, 101);
+    ctx.drawImage(Resources.get('images/Rock.png'), 2 * 101, 101);
+    /*Third Row */
+    for (col = 1; col < 3; col++) {
+        drawWater(col*101,219);
+    }
+    ctx.drawImage(Resources.get('images/Wall Block.png'), 3 * 101, 219);
 
+    for (col = 4; col < 6; col++) {
+        drawWater(col*101,219);
+    }
+    ctx.drawImage(Resources.get('images/Wall Block.png'), 0, 219);
+    /*Fourth Row */
+    for (col = 0; col < 2; col++) {
+        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 302);
+    }
+    for (col = 3; col < 6; col++) {
+        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 302);
+    }
+    drawWater(202,302);
+    /*Fifth Row */
+    for (col = 3; col < 6; col++) {
+        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 385);
+    }
+    ctx.drawImage(Resources.get('images/Ramp North.png'), 3 * 101, 382);
+    for (col = 0; col < 3; col++) {
+        drawWater(col*101,385);
+    }
+    /*Sixth Row */
+    for (col = 4; col < 6; col++) {
+        ctx.drawImage(Resources.get('images/Shadow South.png'), col * 101, 423);
+    }
+    for (col = 0; col < 6; col++) {
+        ctx.drawImage(Resources.get('images/stone-block.png'), col * 101, 468);
+    }
+    /*Seventh Row */
+    for (col = 1; col < 6; col++) {
+        drawWater(col*101,560);
+    }
+    ctx.drawImage(Resources.get('images/Ramp South.png'), 0, 551);
 };
 /* If we are drawing water, we will shift the transparency slightly
                          */
@@ -186,12 +236,12 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
-        allEnemies.forEach(function(enemy) {
-            enemy.update(dt);
-        });
         player.update(dt);
         items.forEach( function(item) {
             item.update();
+        });
+        allEnemies.forEach(function(enemy) {
+            enemy.update(dt);
         });
     }
 
@@ -353,7 +403,8 @@ var Engine = (function(global) {
         'images/stone-block.png',
         'images/water-block.png',
         'images/grass-block.png',
-        'images/char-pink-girl.png',
+        'images/char-boy.png',
+        'images/char-princess-girl.png',
         'images/Ramp South.png',
         'images/Ramp East.png',
         'images/Ramp North.png',
@@ -382,6 +433,7 @@ var Engine = (function(global) {
         'images/Tree Short.png',
         'images/Tree Ugly.png',
         'images/Selector.png',
+        'images/Selector2.png',
         'images/Shadow South.png',
         'images/Star.png'
     ]);

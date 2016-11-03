@@ -1,136 +1,122 @@
+var level1Markers={
+
+};
+var level2Markers={
+
+};
 /* global ctx */
-//The game has two levels, and are dividing each
-//level in blocks. Base on which block player currently is, block are being assigned.
-//Blocks (level1Blocks & level2Blocks) limit area where can go, add obsticales etc.
+//Blocks (level1Blocks & level2Blocks) add obsticales and limit area where cannot go.
 //Below is set of function to make assigning of blocks easier.
 //If "undefined" is passed, the prototype value will be added.
 //This solution was provided by jad-panda on my question on stackoverflow.com
 //http://stackoverflow.com/questions/31154686/objects-within-object-and-assigning-prototype
 
 function Block(left, right, up, down) {
-    this.left = left || -10;
-    this.right = right || 515;
-    this.up = up || -35;
-    this.down = down || 510;
+    this.left = left || -1000;
+    this.right = right || 1000;
+    this.up = up || -1000;
+    this.down = down || 1000;
 }
 
 function Levelblocks() {
-    this.blocks = {};
+    // this.blocks = {};
+    this.blocks = [];
 }
 
 Levelblocks.prototype.addBlock = function(left, right, up, down) {
-    var numOfBlocks = Object.keys(this.blocks).length + 1;
-    this.blocks['block' + numOfBlocks] = new Block(left, right, up, down);
+    // var numOfBlocks = Object.keys(this.blocks).length + 1;
+    // this.blocks['block' + numOfBlocks] = new Block(left, right, up, down);
+    this.blocks.push(new Block(left, right, up, down));
 };
 
 var level1Blocks = new Levelblocks();
 
-level1Blocks.addBlock(-1000, 1000, -1000, 1000);
-// //block1
-// level1Blocks.addBlock(-10, undefined, 514, 517);
+//left
+level1Blocks.addBlock(undefined, -10, undefined, undefined);
 
-// //block2
-// level1Blocks.addBlock(undefined, undefined, undefined, 517);
+//right
+level1Blocks.addBlock(535, undefined, undefined, undefined);
 
-// //block3
-// level1Blocks.addBlock(undefined, 515, 514, 517);
+//up
+level1Blocks.addBlock(undefined, undefined, undefined, -40);
 
-// //block4
-// level1Blocks.addBlock(380, 420, undefined, undefined);
+//down
+level1Blocks.addBlock(undefined, undefined, 545, undefined);
 
-// //block5
-// level1Blocks.addBlock(380, undefined, undefined, undefined);
+//house
+level1Blocks.addBlock(232, undefined, 230, 504);
 
-// //block6
-// level1Blocks.addBlock(undefined, 515, undefined, 368);
+//left wall
+level1Blocks.addBlock(undefined, 80, 410, 504);
 
-// //block7
-// level1Blocks.addBlock(undefined, 515, 190, undefined);
+//right wall and a tree
+level1Blocks.addBlock(140, undefined, 318, 504);
 
-// //block8
-// level1Blocks.addBlock(undefined, undefined, undefined, undefined);
+//another tree
+level1Blocks.addBlock(undefined, 65, 142, 226);
 
-// //block9
-// level1Blocks.addBlock(290, undefined, undefined, 275);
+//river south
+level1Blocks.addBlock(undefined, 380, 60, 142);
 
-// //block10
-// level1Blocks.addBlock(undefined, 435, 145, undefined);
-
-// //block11
-// level1Blocks.addBlock(-10, undefined, undefined, 189);
-
-// //block12
-// level1Blocks.addBlock(-10, 229, undefined, undefined);
-
-// //block13
-// level1Blocks.addBlock(-10, undefined, -15, undefined);
-
-// //block14
-// level1Blocks.addBlock(undefined, undefined, -15, 35);
-
-// //block15
-// level1Blocks.addBlock(undefined, 515, undefined, 35);
-
-// //block16
-// level1Blocks.addBlock(476, 515, -60, undefined);
-
+//river north
+level1Blocks.addBlock(43, undefined, undefined, -23);
 
 
 var level2Blocks = new Levelblocks();
 
-//block1
-level2Blocks.addBlock(478, 510, undefined, 510);
+//left
+level2Blocks.addBlock(undefined, -10, undefined, undefined);
 
-//block2
-level2Blocks.addBlock(undefined, 510, 373, undefined);
+//right
+level2Blocks.addBlock(535, undefined, undefined, undefined);
 
-//block3
-level2Blocks.addBlock(undefined, undefined, 373, 420);
+//up
+level2Blocks.addBlock(undefined, undefined, undefined, -3);
 
-//block4
-level2Blocks.addBlock(undefined, undefined, undefined, 420);
+//down
+level2Blocks.addBlock(undefined, undefined, 505, undefined);
 
-//block5
-level2Blocks.addBlock(-10, undefined, 373, 420);
+// //block5
+// level2Blocks.addBlock(-10, undefined, 373, 420);
 
-//block6
-level2Blocks.addBlock(173, 230, undefined, undefined);
+// //block6
+// level2Blocks.addBlock(173, 230, undefined, undefined);
 
-//block7
-level2Blocks.addBlock(-10, 132, undefined, 344);
+// //block7
+// level2Blocks.addBlock(-10, 132, undefined, 344);
 
-//block8
-level2Blocks.addBlock(-10, undefined, 206, undefined);
+// //block8
+// level2Blocks.addBlock(-10, undefined, 206, undefined);
 
-//block9
-level2Blocks.addBlock(undefined, 230, undefined, undefined);
+// //block9
+// level2Blocks.addBlock(undefined, 230, undefined, undefined);
 
-//block10
-level2Blocks.addBlock(173, 230, undefined, undefined);
+// //block10
+// level2Blocks.addBlock(173, 230, undefined, undefined);
 
-//block11
-level2Blocks.addBlock(undefined, 230, undefined, undefined);
+// //block11
+// level2Blocks.addBlock(undefined, 230, undefined, undefined);
 
-//block12
-level2Blocks.addBlock(-10, undefined, -35, 111);
+// //block12
+// level2Blocks.addBlock(-10, undefined, -35, 111);
 
-//block13
-level2Blocks.addBlock(undefined, undefined, -35, undefined);
+// //block13
+// level2Blocks.addBlock(undefined, undefined, -35, undefined);
 
-//block14
-level2Blocks.addBlock(undefined, undefined, -35, 20);
+// //block14
+// level2Blocks.addBlock(undefined, undefined, -35, 20);
 
-//block15
-level2Blocks.addBlock(undefined, 515, -35, undefined);
+// //block15
+// level2Blocks.addBlock(undefined, 515, -35, undefined);
 
-//block16
-level2Blocks.addBlock(465, 515, undefined, undefined);
+// //block16
+// level2Blocks.addBlock(465, 515, undefined, undefined);
 
-//block17
-level2Blocks.addBlock(undefined, 515, undefined, 265);
+// //block17
+// level2Blocks.addBlock(undefined, 515, undefined, 265);
 
-//block18
-level2Blocks.addBlock(371, undefined, 206, 265);
+// //block18
+// level2Blocks.addBlock(371, undefined, 206, 265);
 
 //Game object is reponsible of keeping track of game progress and status.
 var Game=function() {
@@ -211,8 +197,6 @@ Star.prototype.checkStatus = function(){
 };
 Star.prototype.render = function(){
     if(this.renderStatus==="yes"){
-        console.log(this.x);
-        console.log(this.y);
         ctx.drawImage(Resources.get(this.sprite),this.x,this.y);
     }
 };
@@ -226,9 +210,11 @@ var LifeCounter=function(x,y){
 };
 
 LifeCounter.prototype.render = function(){
-    for(var i=0,x1=this.x;i<=player.lifeCount;i++,x1+=80){
-        ctx.drawImage(Resources.get(this.sprite), x1, this.y);
-    }
+    ctx.font = "50px Luckiest Guy";
+    ctx.fillStyle = "white";
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.fillText(player.lifeCount, this.x +110, this.y + 130);
+    ctx.strokeText(player.lifeCount, this.x + 110, this.y + 130);
 };
 
 //Princess is the npc which player is looking for, it can be picked and carried.
@@ -236,7 +222,7 @@ LifeCounter.prototype.render = function(){
 var Princess=function(x,y){
     this.x=x;
     this.y=y;
-    this.sprite='char-princess-girl.png';
+    this.sprite='images/char-princess-girl.png';
     this.width=20;
     this.height=50;
     this.status="onground";
@@ -268,7 +254,7 @@ Princess.prototype.render = function(){
 var Selector=function (x,y) {
     this.x=x;
     this.y=y;
-    this.sprite = 'images/Selector.png';
+    this.sprite = 'images/Selector2.png';
     this.width=80;
     this.height=50;
     this.status="onground";
@@ -288,7 +274,7 @@ Selector.prototype.update = function(){
 };
 
 //Object selectors being created now, so unique checkStatus can be assinged.
-var level1Selector = new Selector(505, -75);
+var level1Selector = new Selector(0, 20);
 var level1Selector2 = new Selector(405, 495);
 var level2Selector = new Selector(505, 480);
 
@@ -298,8 +284,8 @@ var level2Selector = new Selector(505, 480);
 level1Selector.checkStatus=function () {
     if(this.status==="picked"&&this.renderStatus==="yes"){
         player.level="level2";
-        player.x=503;
-        player.y=470;
+        player.x=0;
+        player.y=500;
         this.renderStatus="no";
     }else if(player.rescueStatus===0&&player.level==="level1"){
         this.renderStatus="yes";
@@ -334,8 +320,8 @@ level2Selector.checkStatus=function() {
         this.renderStatus==="yes";
         if(this.status==="picked"){
             player.level="level1";
-            player.x=500;
-            player.y=-60;
+            player.x=0;
+            player.y=-30;
             this.renderStatus="no";
         }
     }
@@ -351,9 +337,9 @@ var endMessageTime=function () {
 
 
 // Enemies our player must avoid
-var Enemy = function(x1,x2,y1,y2,rate) {
+var Enemy = function(x1,x2,y,rate) {
     this.x=x1;
-    this.y=(y1+y2)/2;
+    this.y=y;
     this.rate=rate;
     this.direction='right';
     this.x1=x1;
@@ -374,7 +360,7 @@ Enemy.prototype.update = function(dt) {
 //Enemy location checks if the object got to the end of it's path limited by
 // x1 or x2 and then changes its direction
 Enemy.prototype.location = function(argument){
-    if(this.x>this.x2){
+    if(this.x+8>this.x2){
         this.direction='left';
     }else if(this.x<this.x1){
         this.direction='right';
@@ -395,7 +381,7 @@ Enemy.prototype.move = function(dt){
     if(this.direction==="left") {
         this.x-=dt*this.rate;
     }else if(this.direction==="right"){
-        this.sprite+=dt*this.rate;
+        this.x+=dt*this.rate;
     }
 };
 // Draw the enemy on the screen, required method for game
@@ -405,8 +391,8 @@ Enemy.prototype.render = function() {
 
 //Player object storing various game details.
 var Player=function() {
-    this.x=100;
-    this.y=100;
+    this.x=0;
+    this.y=505;
     this.sprite = 'images/char-boy.png';
     this.state='stand';
     this.location='block1';
@@ -426,7 +412,7 @@ Player.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.move(dt);
-    this.checkLocation();
+    // this.checkLocation();
     this.picUpdate();
     this.levelCheck();
 };
@@ -449,7 +435,7 @@ Player.prototype.levelCheck=function(){
 };
 
 //checkLocation bases on canvas position, assigns curent block, so player stays on the map
-Player.prototype.checkLocation=function (argument) {
+Player.prototype.checkLocation=function () {
     // for (var each in this.levelMarkers) {
     //     if ( this.levelMarkers.hasOwnProperty(each) && this.x > this.levelMarkers[each].x1 &&
     //         this.x < this.levelMarkers[each].x2 &&this.y > this.levelMarkers[each].y1 &&
@@ -458,9 +444,30 @@ Player.prototype.checkLocation=function (argument) {
     //         break;
     //     }
     // }
-    this.levelBlocks.blocks.forEach( function(block, index) {
-
-    });
+    // this.levelBlocks.blocks.forEach( function(block) {
+    //     if(this.x>block.left&&this.x<block.right&&this.y>block.up&&this.y<block.down){
+    //         this.location='location1';
+    //         // break;
+    //     }
+    // });
+    // console.log(this.location);
+    // for(var i=1;i<=this.levelBlocks.blocks.length;i++){
+    //     var block=this.levelBlocks.blocks['block'+i];
+    //     if(this.x>block.left&&this.x<block.right&&this.y>block.up&&this.y<block.down){
+    //         this.location='block'+i;
+    //         console.log(this.location);
+    //     }
+    // }
+    // console.log(this.x);
+    // console.log(this.y);
+    // for (var each in this.levelBlocks.blocks) {
+    //     if ( this.levelBlocks.blocks.hasOwnProperty(each) && this.x > this.levelBlocks.blocks[each].left &&
+    //         this.x < this.levelBlocks.blocks[each].right &&this.y > this.levelBlocks.blocks[each].up &&
+    //         this.y < this.levelBlocks.blocks[each].down) {
+    //         this.location = each;
+    //         break;
+    //     }
+    // }
 };
 
 // Draw the player on the screen, required method for game
@@ -493,21 +500,58 @@ Player.prototype.handleInput = function(key) {
 //As long as status in "move..." player will move in certain location
 //unless position will not within currently assigned blocks.
 Player.prototype.move=function (dt) {
-    if(this.state==='move_left' &&
-     this.x-3>this.levelBlocks.blocks[this.location].left) {
+    // console.log(this.state);
+    // console.log(this.levelBlocks.blocks[this.location].left);
+    // console.log(this.levelBlocks.blocks[this.location].right);
+    // console.log(this.levelBlocks.blocks[this.location].down);
+    // console.log(this.levelBlocks.blocks[this.location].up);
+
+    // if(this.state==='move_left' &&
+    //  this.x-3>this.levelBlocks.blocks[this.location].left) {
+    //     this.x-=dt*180;
+    // }
+    // if(this.state==='move_right' &&
+    //  this.x+3<this.levelBlocks.blocks[this.location].right) {
+    //     this.x+=dt*180;
+    // }
+    // if(this.state==='move_down' &&
+    //  this.y+3<this.levelBlocks.blocks[this.location].down) {
+    //     this.y+=dt*180;
+    // }
+    // if(this.state==='move_up' &&
+    //  this.y-3>this.levelBlocks.blocks[this.location].up) {
+    //     this.y-=dt*180;
+    // }
+    // console.log(this.x);
+    // console.log(this.y);
+    var x0=this.x,y0=this.y;
+    if(this.state==='move_left') {
         this.x-=dt*180;
     }
-    if(this.state==='move_right' &&
-     this.x+3<this.levelBlocks.blocks[this.location].left) {
+    if(this.state==='move_right') {
         this.x+=dt*180;
     }
-    if(this.state==='move_down' &&
-     this.y-3>this.levelBlocks.blocks[this.location].down) {
+    if(this.state==='move_down') {
+        this.y+=dt*180;
+    }
+    if(this.state==='move_up') {
         this.y-=dt*180;
     }
-    if(this.state==='move_up' &&
-     this.y+3<this.levelBlocks.blocks[this.location].up) {
-        this.y+=dt*180;
+    for(var i=0;i<this.levelBlocks.blocks.length;i++){
+            // console.log(this.levelBlocks.blocks[i].up);
+        if(this.x<this.levelBlocks.blocks[i].right&&this.x+this.width>this.levelBlocks.blocks[i].left&&
+           this.y<this.levelBlocks.blocks[i].down&&this.y+this.height>this.levelBlocks.blocks[i].up){
+            this.x=x0;
+            this.y=y0;
+            // console.log('yes');
+            break;
+            // console.log(this.levelBlocks.blocks[i].left);
+            // console.log(this.levelBlocks.blocks[i].right);
+            // console.log(this.levelBlocks.blocks[i].up);
+            // console.log(this.levelBlocks.blocks[i].down);
+        }else{
+            // console.log('no');
+        }
     }
 };
 
@@ -518,7 +562,7 @@ Player.prototype.picUpdate=function() {
     if(this.immortal>(Date.now()/1000)){
         this.sprite='images/char-pink-girl-immortal.png';
     }else{
-        if(princess.status="picked") {
+        if(princess.status==="picked") {
             this.sprite = 'images/char-pink-girl-holding.png';
         } else if (princess.status === "onground") {
             this.sprite = 'images/char-boy.png';
@@ -527,11 +571,11 @@ Player.prototype.picUpdate=function() {
 };
 
 //Player reset fuction, to put life count on zero and move player to start location.
-Player.prototype.reset=function(win){
+Player.prototype.reset=function(){
     this.lifeCount=0;
     this.rescueStatus=0;
-    this.x=100;
-    this.y=100;
+    this.x=0;
+    this.y=505;
     this.level='level1';
 };
 
@@ -580,16 +624,21 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+//Creating enemies for level1
 
+var enemy11 = new Enemy(-10,140,345,160);
+var enemy12 = new Enemy(65,515,175,180);
+var enemy13 = new Enemy(91,515,13,220);
 
 //Enemies being grouped in two list so they can changed, base on the level
-var allEnemies2=[];
 var allEnemies1=[];
+var allEnemies2=[];
+// var allEnemies1=[enemy11,enemy12,enemy13];
 var allEnemies=[];
 
 //Other items
 var star2 = new Star(5, 325);
-var star1 = new Star(0, 100);
+var star1 = new Star(505, 100);
 var princess = new Princess(391, 250);
 var player = new Player();
 
@@ -602,6 +651,6 @@ var items2 = [star2, princess, level2Selector];
 var items1 = [star1, level1Selector, level1Selector2];
 var items = [];
 
-var lifeCounter = new LifeCounter(100, -75);
+var lifeCounter = new LifeCounter(470, -60);
 
 var newGame = new Game();
