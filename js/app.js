@@ -111,33 +111,33 @@ var Game = function() {
 Game.prototype.gameReset = function() {
     player.reset();
     stars.forEach(function(star) {
-        star.status = "onground";
-        star.renderStatus = "yes";
+        star.status = 'onground';
+        star.renderStatus = 'yes';
     });
     selectors.forEach(function(selector) {
-        selector.status = "onground";
-        selector.renderStatus = "yes";
+        selector.status = 'onground';
+        selector.renderStatus = 'yes';
     });
-    princess.status = "onground";
-    princess.renderStatus = "yes";
+    princess.status = 'onground';
+    princess.renderStatus = 'yes';
 };
 
 /**
  * @description React space click button - restarting game, pausing
  */
 Game.prototype.handleInput = function(key) {
-    if (key === "spacebar" && this.gameRun === false) {
+    if (key === 'spacebar' && this.gameRun === false) {
         this.gameRun = true;
         this.endGame = false;
         this.finishedGame = false;
         this.displayMessage = true;
         startMessageTime();
         this.gameReset();
-    } else if (key === "spacebar" && this.paused === true) {
+    } else if (key === 'spacebar' && this.paused === true) {
         this.paused = false;
-    } else if (key === "spacebar" && this.paused === false && !this.gameOver) {
+    } else if (key === 'spacebar' && this.paused === false && !this.gameOver) {
         this.paused = true;
-    } else if (key === "spacebar" && this.gameOver === true) {
+    } else if (key === 'spacebar' && this.gameOver === true) {
         this.gameOver = false;
         this.gameReset();
     }
@@ -166,8 +166,8 @@ var Star = function(x, y) {
     this.sprite = 'images/Star.png';
     this.width = 40;
     this.height = 40;
-    this.status = "onground";
-    this.renderStatus = "yes";
+    this.status = 'onground';
+    this.renderStatus = 'yes';
 };
 
 Star.prototype.update = function() {
@@ -179,13 +179,13 @@ Star.prototype.update = function() {
  * and prevent further display of object
  */
 Star.prototype.checkStatus = function() {
-    if (this.status === "picked" && this.renderStatus === "yes") {
+    if (this.status === 'picked' && this.renderStatus === 'yes') {
         player.lifeCount += 1;
-        this.renderStatus = "no";
+        this.renderStatus = 'no';
     }
 };
 Star.prototype.render = function() {
-    if (this.renderStatus === "yes") {
+    if (this.renderStatus === 'yes') {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 };
@@ -201,8 +201,8 @@ var LifeCounter = function(x, y) {
 };
 
 LifeCounter.prototype.render = function() {
-    ctx.font = "50px Luckiest Guy";
-    ctx.fillStyle = "white";
+    ctx.font = '50px Luckiest Guy';
+    ctx.fillStyle = 'white';
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     ctx.fillText(player.lifeCount, this.x + 110, this.y + 130);
     ctx.strokeText(player.lifeCount, this.x + 110, this.y + 130);
@@ -219,8 +219,8 @@ var Princess = function(x, y) {
     this.sprite = 'images/char-princess-girl.png';
     this.width = 20;
     this.height = 50;
-    this.status = "onground";
-    this.renderStatus = "yes";
+    this.status = 'onground';
+    this.renderStatus = 'yes';
 };
 
 Princess.prototype.update = function() {
@@ -228,17 +228,17 @@ Princess.prototype.update = function() {
 };
 
 Princess.prototype.checkStatus = function() {
-    if (this.status === "picked") {
+    if (this.status === 'picked') {
         player.rescueStatus = 1;
-        this.renderStatus = "no";
-    } else if (this.status === "onground") {
+        this.renderStatus = 'no';
+    } else if (this.status === 'onground') {
         player.rescueStatus = 0;
-        this.renderStatus = "yes";
+        this.renderStatus = 'yes';
     }
 };
 
 Princess.prototype.render = function() {
-    if (this.renderStatus === "yes") {
+    if (this.renderStatus === 'yes') {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 };
@@ -254,14 +254,14 @@ var Selector = function(x, y) {
     this.sprite = 'images/Selector.png';
     this.width = 80;
     this.height = 50;
-    this.status = "onground";
-    this.renderStatus = "yes";
+    this.status = 'onground';
+    this.renderStatus = 'yes';
 };
 
 Selector.prototype.checkStatus = function() {};
 
 Selector.prototype.render = function() {
-    if (this.renderStatus === "yes") {
+    if (this.renderStatus === 'yes') {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 };
@@ -281,14 +281,14 @@ var level2Selector = new Selector(0, 470);
  * to return to level2
  */
 level1Selector.checkStatus = function() {
-    if (this.status === "picked" && this.renderStatus === "yes") {
-        player.level = "level2";
+    if (this.status === 'picked' && this.renderStatus === 'yes') {
+        player.level = 'level2';
         player.x = 0;
         player.y = 500;
-        this.renderStatus = "no";
-    } else if (player.rescueStatus === 0 && player.level === "level1") {
-        this.renderStatus = "yes";
-        this.status = "onground";
+        this.renderStatus = 'no';
+    } else if (player.rescueStatus === 0 && player.level === 'level1') {
+        this.renderStatus = 'yes';
+        this.status = 'onground';
     }
 };
 
@@ -300,14 +300,14 @@ level1Selector.checkStatus = function() {
  */
 level1Selector2.checkStatus = function() {
     if (player.rescueStatus === 1) {
-        this.renderStatus = "yes";
-        if (this.status === "picked") {
+        this.renderStatus = 'yes';
+        if (this.status === 'picked') {
             newGame.endGame = true;
             endMessageTime();
         }
     } else if (player.rescueStatus === 0) {
-        this.renderStatus = "no";
-        this.status = "onground";
+        this.renderStatus = 'no';
+        this.status = 'onground';
     }
 };
 
@@ -317,15 +317,15 @@ level1Selector2.checkStatus = function() {
  */
 level2Selector.checkStatus = function() {
     if (player.rescueStatus === 0) {
-        this.renderStatus = "no";
-        this.status = "onground";
-    } else if (player.rescueStatus === 1 && player.level === "level2") {
-        this.renderStatus = "yes";
-        if (this.status === "picked") {
-            player.level = "level1";
+        this.renderStatus = 'no';
+        this.status = 'onground';
+    } else if (player.rescueStatus === 1 && player.level === 'level2') {
+        this.renderStatus = 'yes';
+        if (this.status === 'picked') {
+            player.level = 'level1';
             player.x = 0;
             player.y = -30;
-            this.renderStatus = "no";
+            this.renderStatus = 'no';
         }
     }
 };
@@ -384,9 +384,9 @@ Enemy.prototype.location = function(argument) {
  * @description Image changes based on direction
  */
 Enemy.prototype.picUpdate = function() {
-    if (this.direction === "right") {
+    if (this.direction === 'right') {
         this.sprite = 'images/enemy-bug.png';
-    } else if (this.direction === "left") {
+    } else if (this.direction === 'left') {
         this.sprite = 'images/enemy-bug-left.png';
     }
 };
@@ -395,9 +395,9 @@ Enemy.prototype.picUpdate = function() {
  * @description Base on direction status, enemy moves this way
  */
 Enemy.prototype.move = function(dt) {
-    if (this.direction === "left") {
+    if (this.direction === 'left') {
         this.x -= dt * this.rate;
-    } else if (this.direction === "right") {
+    } else if (this.direction === 'right') {
         this.x += dt * this.rate;
     }
 };
@@ -529,9 +529,9 @@ Player.prototype.picUpdate = function() {
     if (this.immortal > (Date.now() / 1000)) {
         this.sprite = 'images/char-boy-immortal.png';
     } else {
-        if (princess.status === "picked") {
+        if (princess.status === 'picked') {
             this.sprite = 'images/char-boy-carrying.png';
-        } else if (princess.status === "onground") {
+        } else if (princess.status === 'onground') {
             this.sprite = 'images/char-boy.png';
         }
     }
@@ -559,7 +559,7 @@ Player.prototype.collision = function() {
     } else if (this.lifeCount > 0) {
         this.immortal = Date.now() / 1000 + 2;
         this.lifeCount -= 1;
-        princess.status = "onground";
+        princess.status = 'onground';
         this.rescueStatus = 0;
     }
 };
@@ -601,33 +601,33 @@ document.addEventListener('keyup', function(e) {
 
 //Jquery controls for on screen control buttons, adjusted also for touch devices.
 //once buttons are pressed their css is being changed too
-$(document).on("mouseup touchend", "#up, #left, #right, #down", function() {
-    player.handleInput("stand");
-    $("#up, #left , #right, #down").css("background", "#86d3e3");
+$(document).on('mouseup touchend', '#up, #left, #right, #down', function() {
+    player.handleInput('stand');
+    $('#up, #left , #right, #down').css('background', '#86d3e3');
 });
 
-$(document).on("mousedown touchstart", "#up", function() {
-    player.handleInput("up");
-    $("#up").css("background", "#acd7e0");
+$(document).on('mousedown touchstart', '#up', function() {
+    player.handleInput('up');
+    $('#up').css('background', '#acd7e0');
 });
 
-$(document).on("mousedown touchstart", "#left", function() {
-    player.handleInput("left");
-    $("#left").css("background", "#acd7e0");
+$(document).on('mousedown touchstart', '#left', function() {
+    player.handleInput('left');
+    $('#left').css('background', '#acd7e0');
 });
 
-$(document).on("mousedown touchstart", "#right", function() {
-    player.handleInput("right");
-    $("#right").css("background", "#acd7e0");
+$(document).on('mousedown touchstart', '#right', function() {
+    player.handleInput('right');
+    $('#right').css('background', '#acd7e0');
 });
 
-$(document).on("mousedown touchstart", "#down", function() {
-    player.handleInput("down");
-    $("#down").css("background", "#acd7e0");
+$(document).on('mousedown touchstart', '#down', function() {
+    player.handleInput('down');
+    $('#down').css('background', '#acd7e0');
 });
 
-$("#space").click(function() {
-    newGame.handleInput("spacebar");
+$('#space').click(function() {
+    newGame.handleInput('spacebar');
 });
 
 //Creating enemies for level1

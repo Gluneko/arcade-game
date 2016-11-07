@@ -155,7 +155,7 @@ canvas.width = 606;
 canvas.height = 650;
 
 var Engine = (function() {
-    $("#canvas").append(canvas);
+    $('#canvas').append(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -182,8 +182,8 @@ var Engine = (function() {
 
         //displaying call for help at the beginning of the game
         if (newGame.gameRun === true && newGame.displayMessage === true) {
-            textDrawer("Oooops...My little princess is lost!", canvas.width / 2, canvas.height / 2 + 100);
-            textDrawer("Help me find her in the forest!", canvas.width / 2, canvas.height / 2 + 140);
+            textDrawer('Oooops...My little princess is lost!', canvas.width / 2, canvas.height / 2 + 100);
+            textDrawer('Help me find her in the forest!', canvas.width / 2, canvas.height / 2 + 140);
         }
 
         //if the endGame is true runs the end animation
@@ -194,8 +194,8 @@ var Engine = (function() {
         //after few seconds status changes and end message appears
         if (newGame.finishedGame === true) {
             ctx.globalAlpha = 1;
-            textDrawer("YOU MADE IT!", canvas.width / 2, canvas.height / 2);
-            textDrawer("Press SPACE to start again!", canvas.width / 2, canvas.height / 2 + 40);
+            textDrawer('YOU MADE IT!', canvas.width / 2, canvas.height / 2);
+            textDrawer('Press SPACE to start again!', canvas.width / 2, canvas.height / 2 + 40);
         }
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
@@ -259,7 +259,7 @@ var Engine = (function() {
         items.forEach(function(item) {
             if (player.x < item.x + item.width && player.x + player.width > item.x &&
                 player.y < item.y + item.height && player.y + player.height > item.y) {
-                item.status = "picked";
+                item.status = 'picked';
             }
         });
     }
@@ -270,9 +270,9 @@ var Engine = (function() {
      * they are just drawing the entire screen over and over.
      */
     function render() {
-        if (player.level === "level1") {
+        if (player.level === 'level1') {
             level1();
-        } else if (player.level === "level2") {
+        } else if (player.level === 'level2') {
             level2();
         }
         renderEntities();
@@ -298,19 +298,19 @@ var Engine = (function() {
 
     //textDrawer is used to display text messages on canvas
     function textDrawer(text, x, y) {
-        ctx.font = "28px Luckiest Guy";
-        ctx.textAlign = "center";
-        ctx.strokeStyle = "black";
+        ctx.font = '28px Luckiest Guy';
+        ctx.textAlign = 'center';
+        ctx.strokeStyle = 'black';
         ctx.lineWidth = 3;
         ctx.strokeText(text, x, y);
-        ctx.fillStyle = "white";
+        ctx.fillStyle = 'white';
         ctx.fillText(text, x, y);
     }
 
     //reset is used to display message when game is paused or when it is game over
     function reset() {
         if (!newGame.gameRun && !newGame.finishedGame || newGame.paused === true) {
-            textDrawer("Press SPACE to start", canvas.width / 2, canvas.height / 2);
+            textDrawer('Press SPACE to start', canvas.width / 2, canvas.height / 2);
         }
 
         //game over changes background to greyscale and displayes text
@@ -326,8 +326,8 @@ var Engine = (function() {
                 imgData.data[i + 2] = grey;
             }
             ctx.putImageData(imgData, 0, 0);
-            textDrawer("GAME OVER!", canvas.width / 2, canvas.height / 2);
-            textDrawer("Press SPACE to start again!", canvas.width / 2, (canvas.height / 2) + 40);
+            textDrawer('GAME OVER!', canvas.width / 2, canvas.height / 2);
+            textDrawer('Press SPACE to start again!', canvas.width / 2, (canvas.height / 2) + 40);
         }
 
         window.requestAnimationFrame(reset);
@@ -440,31 +440,31 @@ var Engine = (function() {
 });
 
 //Jquery controls for displaying canvas
-$("#play").click(function() {
+$('#play').click(function() {
     Engine();
-    $("#play").hide();
-    $("#show").show();
-    $(".menu").css("margin-top", 0);
+    $('#play').hide();
+    $('#show').show();
+    $('.menu').css('margin-top', 0);
 });
 
 //Jquery controls for displaying control buttons
 //Including changing adding css so if controls are hidden canvas is in the middle
-$("#show").click(function() {
-    $(".control").toggle("slow", function() {
+$('#show').click(function() {
+    $('.control').toggle('slow', function() {
         cssChanger();
     });
 });
 
 var cssChanger = function() {
-    if ($(".control").css("display") !== "none") {
-        $(".game").css("float", "left");
-        $(".game").css("width", "60%");
-    } else if ($(".control").css("display") === "none") {
-        $(".game").css("float", "none");
-        $(".game").css("width", "100%");
+    if ($('.control').css('display') !== 'none') {
+        $('.game').css('float', 'left');
+        $('.game').css('width', '60%');
+    } else if ($('.control').css('display') === 'none') {
+        $('.game').css('float', 'none');
+        $('.game').css('width', '100%');
     }
 };
 
-$("#ins").click(function() {
-    $("#ins-list").slideToggle("slow");
+$('#ins').click(function() {
+    $('#ins-list').slideToggle('slow');
 });
