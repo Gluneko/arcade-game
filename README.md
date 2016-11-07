@@ -14,7 +14,7 @@
 
 ###Game Rules
 
-- the goal is to rescue the princess and back to the house. Follow the star markers to find her.
+- The goal is to rescue the princess and back to the house. Follow the star markers to find her.
 - There are two levels in the game, princess is in the second one, you must bring her back to complete a game.
 - Avoid touching bugs.
 - If you touch a bug you lose a life, if you have no lives left game is over.
