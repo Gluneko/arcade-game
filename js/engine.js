@@ -23,10 +23,10 @@ var level1=function(){
         ctx.drawImage(Resources.get('images/stone-block.png'), col * 101, 33);
     }
      /*Second Row */
-    for (col = 0; col < 4; col++) {
+    for (col = 0; col < 3; col++) {
         drawWater(col*101,125);
     }
-    for (col = 4; col < 6; col++) {
+    for (col = 3; col < 6; col++) {
         ctx.drawImage(Resources.get('images/Dirt Block.png'), col * 101, 116);
     }
     /*Third Row */
@@ -80,58 +80,112 @@ var level1=function(){
 
 }
 
+// var level2=function() {
+//     for (col = 0; col < 6; col++) {
+//         drawWater(col*101,-30);
+//     }
+//     /*First Row */
+//     for (col = 0; col < 6; col++) {
+//         ctx.drawImage(Resources.get('images/Dirt Block.png'), col * 101, 53);
+//     }
+//     /*Second Row */
+//     for (col = 0; col < 6; col++) {
+//         ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 136);
+//     }
+//     ctx.drawImage(Resources.get('images/Rock.png'), 1 * 101, 101);
+//     ctx.drawImage(Resources.get('images/Rock.png'), 2 * 101, 101);
+//     /*Third Row */
+//     for (col = 1; col < 3; col++) {
+//         drawWater(col*101,219);
+//     }
+//     ctx.drawImage(Resources.get('images/Wall Block.png'), 3 * 101, 219);
+
+//     for (col = 4; col < 6; col++) {
+//         drawWater(col*101,219);
+//     }
+//     ctx.drawImage(Resources.get('images/Wall Block.png'), 0, 219);
+//     /*Fourth Row */
+//     for (col = 0; col < 2; col++) {
+//         ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 302);
+//     }
+//     for (col = 3; col < 6; col++) {
+//         ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 302);
+//     }
+//     drawWater(202,302);
+//     /*Fifth Row */
+//     for (col = 3; col < 6; col++) {
+//         ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 385);
+//     }
+//     ctx.drawImage(Resources.get('images/Ramp North.png'), 3 * 101, 382);
+//     for (col = 0; col < 3; col++) {
+//         drawWater(col*101,385);
+//     }
+//     /*Sixth Row */
+//     for (col = 4; col < 6; col++) {
+//         ctx.drawImage(Resources.get('images/Shadow South.png'), col * 101, 423);
+//     }
+//     for (col = 0; col < 6; col++) {
+//         ctx.drawImage(Resources.get('images/stone-block.png'), col * 101, 468);
+//     }
+//     /*Seventh Row */
+//     for (col = 1; col < 6; col++) {
+//         drawWater(col*101,560);
+//     }
+//     ctx.drawImage(Resources.get('images/Ramp South.png'), 0, 521);
+// };
+
 var level2=function() {
     for (col = 0; col < 6; col++) {
         drawWater(col*101,-30);
     }
     /*First Row */
     for (col = 0; col < 6; col++) {
-        ctx.drawImage(Resources.get('images/Dirt Block.png'), col * 101, 53);
+        ctx.drawImage(Resources.get('images/Dirt Block.png'), col * 101, 33);
     }
     /*Second Row */
     for (col = 0; col < 6; col++) {
-        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 136);
+        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 116);
     }
-    ctx.drawImage(Resources.get('images/Rock.png'), 1 * 101, 101);
-    ctx.drawImage(Resources.get('images/Rock.png'), 2 * 101, 101);
+    ctx.drawImage(Resources.get('images/Rock.png'), 1 * 101, 81);
+    ctx.drawImage(Resources.get('images/Rock.png'), 2 * 101, 81);
     /*Third Row */
     for (col = 1; col < 3; col++) {
-        drawWater(col*101,219);
+        drawWater(col*101,199);
     }
-    ctx.drawImage(Resources.get('images/Wall Block.png'), 3 * 101, 219);
+    ctx.drawImage(Resources.get('images/Wall Block.png'), 3 * 101, 199);
 
     for (col = 4; col < 6; col++) {
-        drawWater(col*101,219);
+        drawWater(col*101,199);
     }
-    ctx.drawImage(Resources.get('images/Wall Block.png'), 0, 219);
+    ctx.drawImage(Resources.get('images/Wall Block.png'), 0, 199);
     /*Fourth Row */
     for (col = 0; col < 2; col++) {
-        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 302);
+        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 282);
     }
     for (col = 3; col < 6; col++) {
-        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 302);
+        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 282);
     }
-    drawWater(202,302);
+    drawWater(202,282);
     /*Fifth Row */
     for (col = 3; col < 6; col++) {
-        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 385);
+        ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 365);
     }
-    ctx.drawImage(Resources.get('images/Ramp North.png'), 3 * 101, 382);
+    ctx.drawImage(Resources.get('images/Ramp North.png'), 3 * 101, 362);
     for (col = 0; col < 3; col++) {
-        drawWater(col*101,385);
+        drawWater(col*101,365);
     }
     /*Sixth Row */
     for (col = 4; col < 6; col++) {
-        ctx.drawImage(Resources.get('images/Shadow South.png'), col * 101, 423);
+        ctx.drawImage(Resources.get('images/Shadow South.png'), col * 101, 403);
     }
     for (col = 0; col < 6; col++) {
-        ctx.drawImage(Resources.get('images/stone-block.png'), col * 101, 468);
+        ctx.drawImage(Resources.get('images/stone-block.png'), col * 101, 448);
     }
     /*Seventh Row */
     for (col = 1; col < 6; col++) {
-        drawWater(col*101,560);
+        drawWater(col*101,540);
     }
-    ctx.drawImage(Resources.get('images/Ramp South.png'), 0, 551);
+    ctx.drawImage(Resources.get('images/Ramp South.png'), 0, 521);
 };
 /* If we are drawing water, we will shift the transparency slightly
                          */
@@ -142,20 +196,19 @@ var level2=function() {
                         ctx.restore();
                     }
 
-var Engine = (function(global) {
-    /* Predefine the variables we'll be using within this scope,
-     * create the canvas element, grab the 2D context for that canvas
-     * set the canvas elements height/width and add it to the DOM.
-     */
-    var doc = global.document,
-        win = global.window,
-        canvas = doc.createElement('canvas'),
+/* Predefine the variables we'll be using within this scope,
+* create the canvas element, grab the 2D context for that canvas
+* set the canvas elements height/width and add it to the DOM.
+*/
+var canvas = document.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    canvas.width = 606;
-    canvas.height = 650;
-    doc.body.appendChild(canvas);
+canvas.width = 606;
+canvas.height = 650;
+
+var Engine = (function() {
+    $("#canvas").append(canvas);
 
     // $('#canvas').append(canvas);
 
@@ -207,7 +260,7 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        win.requestAnimationFrame(main);
+        window.requestAnimationFrame(main);
     }
 
     /* This function does some initial setup that should only occur once,
@@ -253,15 +306,23 @@ var Engine = (function(global) {
             allEnemies.forEach( function(enemy) {
                 if(player.x<enemy.x+enemy.width && player.x+player.width>enemy.x &&
                     player.y<enemy.y+enemy.height && player.y+player.height>enemy.y) {
+                    console.log('yes');
                     player.collision();
                 }
             });
         }
         items.forEach( function(item) {
+            // if(item instanceof Selector){
+            //     if(player.x<item.x+item.width && player.x+player.width>item.x &&
+            //     player.y<item.y+item.height && player.y+player.height>item.y-60) {
+            //         item.status="picked";
+            //     }
+            // }else{
             if(player.x<item.x+item.width && player.x+player.width>item.x &&
-                player.y<item.y+item.height && player.y+player.height>item.y) {
+            player.y<item.y+item.height && player.y+player.height>item.y) {
                 item.status="picked";
             }
+            // }
         });
     }
     /* This function initially draws the "game level", it will then call
@@ -384,7 +445,7 @@ var Engine = (function(global) {
 
         this.draw = function() {
             ctx.globalAlpha = opacity;
-            ctx.drawImage(Resources.get('images/Star.png'), x, y);
+            ctx.drawImage(Resources.get('images/Heart.png'), x, y);
         };
     }
 
@@ -416,8 +477,8 @@ var Engine = (function(global) {
         'images/enemy-bug.png',
         'images/Heart.png',
         'images/Key.png',
-        'images/char-pink-girl-holding.png',
-        'images/char-pink-girl-immortal.png',
+        'images/char-boy-carrying.png',
+        'images/char-boy-immortal.png',
         'images/Roof North East.png',
         'images/Roof North West.png',
         'images/Roof South East.png',
@@ -439,9 +500,34 @@ var Engine = (function(global) {
     ]);
     Resources.onReady(init);
 
-    /* Assign the canvas' context object to the global variable (the window
-     * object when run in a browser) so that developers can use it more easily
-     * from within their app.js files.
-     */
-    global.ctx = ctx;
-})(this);
+});
+
+//Jquery controls for displaying canvas
+$("#play").click(function(){
+    Engine();
+    $("#play").hide();
+    $("#show").show();
+    $(".menu").css("margin-top",0);
+});
+
+//Jquery controls for displaying control buttons
+//Including changing adding css so if controls are hidden canvas is in the middle
+$("#show").click(function(){
+    $(".control").toggle("slow",function(){
+        cssChanger();
+    })
+});
+
+var cssChanger=function () {
+    if($(".control").css("display")!=="none"){
+        $(".game").css("float","left");
+        $(".game").css("width","60%");
+    } else if($(".control").css("display")==="none"){
+        $(".game").css("float","none");
+        $(".game").css("width","100%");
+    }
+}
+
+$("#ins").click(function(){
+    $("#ins-list").slideToggle("slow");
+});
