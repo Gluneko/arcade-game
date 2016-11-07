@@ -3,31 +3,35 @@ html,
 body {
     font-family: 'Special Elite', cursive;
     text-align: center;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     height: 98%;
 }
 
 /*content*/
-
 .container {
-    position: relative; /* needed for footer positioning*/
-    margin: 0 auto; /* center, not in IE5 */
-    height: auto !important; /* real browsers */
-    height: 100%; /* IE6: treaded as min-height*/
+    position: relative;
+ /* needed for footer positioning*/
+    margin: 0 auto;
+ /* center, not in IE5 */
+    height: auto !important;
+ /* real browsers */
+    height: 100%;
+ /* IE6: treaded as min-height*/
     max-width: 960px;
-    min-height: 100%; /* real browsers */
+    min-height: 100%;
+ /* real browsers */;
 }
 
 a {
     margin: 0;
-    padding:0;
+    padding: 0;
     text-align: center;
     transition: 0.2s ease-in-out;
 }
 
 h1 {
-    font: 2em 'Luckiest Guy', cursive;
+    font: 2.5em 'Luckiest Guy', cursive;
     color: #86d3e3;
 }
 
@@ -36,7 +40,7 @@ canvas {
 }
 
 #ins-list {
-    font:italic 0.6em 'Special Elite', cursive;
+    font: italic 0.6em 'Special Elite', cursive;
 }
 
 p {
@@ -44,7 +48,7 @@ p {
 }
 
 .pic {
-    width:50px;
+    width: 50px;
     margin: 0 20px;
 }
 
@@ -63,13 +67,14 @@ p {
 }
 
 .menu-item {
+    margin: 10px 0;
     font: 'Luckiest Guy', cursive;
     width: 100%;
     clear: both;
 }
 
 .menu {
-    margin-top: 10%;
+    margin-top: 20%;
     font-size: 2em;
     padding-bottom: 10%;
 }
@@ -84,13 +89,15 @@ p {
     border-radius: 20%;
     color: #fff;
     font-size: 18px;
-    background:#86d3e3;
+    background: #86d3e3;
     padding: 10px 20px;
     margin-bottom: 10px;
     text-decoration: none;
     width: 60px;
-    -webkit-user-select: none; /* disable selection/Copy of UIWebView */
-    -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
+    -webkit-user-select: none;
+ /* disable selection/Copy of UIWebView */
+    -webkit-touch-callout: none;
+ /* disable the IOS popup when long-press on a link */;
 }
 
 .game {
@@ -131,32 +138,35 @@ footer {
 
 /*responsive*/
 @media only screen and (max-width: 1000px) {
-        canvas {
-            max-width: 450px;
-        }
-        .container {
-            max-width: 760px;
-        }
-        .btn {
-            width: 45px;
-            font-size: 15px;
-        }
-
+    canvas {
+        max-width: 450px;
     }
+
+    .container {
+        max-width: 760px;
+    }
+
+    .btn {
+        width: 45px;
+        font-size: 15px;
+    };
+}
 
 @media only screen and (max-width: 735px) {
-        canvas {
-            max-width: 350px;
-        }
-        .container {
-            max-width: 660px;
-        }
-        .btn {
-            width: 35px;
-            font-size: 12px;
-        }
-        .menu-item {
-            padding-bottom: 10px;
-        }
-
+    canvas {
+        max-width: 350px;
     }
+
+    .container {
+        max-width: 660px;
+    }
+
+    .btn {
+        width: 35px;
+        font-size: 12px;
+    }
+
+    .menu-item {
+        padding-bottom: 10px;
+    };
+}

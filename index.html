@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Rescue The Princess</title>
@@ -9,41 +10,51 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
+
 <body>
     <div class="container">
         <header>
             <h1>Rescue The Princess</h1>
         </header>
         <article class="menu">
-            <section class="menu-item"><a href="javascript:void(0)" id="play">Play</a></section>
-            <section class="menu-item"><a href="javascript:void(0)" id="show">Show Control Buttons</a></section>
+            <section class="menu-item"><a href="javascript:void(0)" id="play">Play</a>
+            </section>
+            <section class="menu-item"><a href="javascript:void(0)" id="show">Show Control Buttons</a>
+            </section>
             <section id="canvas" class="game"></section>
             <section class="control" oncontextmenu="return false">
-                <div><a href="javascript:void(0)" id="up" class="btn">UP</a></div>
+                <div><a href="javascript:void(0)" id="up" class="btn">UP</a>
+                </div>
                 <div>
                     <a href="javascript:void(0)" id="left" class="btn">LEFT</a>
                     <a href="javascript:void(0)" id="space" class="btn">SPACE</a>
                     <a href="javascript:void(0)" id="right" class="btn">RIGHT</a>
                 </div>
-                <div><a href="javascript:void(0)" id="down" class="btn">DOWN</a></div>
+                <div><a href="javascript:void(0)" id="down" class="btn">DOWN</a>
+                </div>
             </section>
-            <section class="menu-item"><a href="javascript:void(0)" id="ins">Instructions</a></section>
+            <section class="menu-item"><a href="javascript:void(0)" id="ins">Instructions</a>
+            </section>
             <section id="ins-list">
                 <p><img src="images/char-princess-girl2.png" alt="star marker" class="pic">Find the princess and bring her back home!</p>
-                <p>Follow the star marker.<img src="images/Selector2.png" alt="star marker" class="pic"></p>
+                <p>Follow the star marker.<img src="images/Selector2.png" alt="star marker" class="pic">
+                </p>
                 <p><img src="images/enemy-bug2.png" alt="star marker" class="pic">Avoid the bugs!</p>
-                <p>Use arrow keys to navigate...<img src="images/Navigation keys.png" alt="arrow keys" class="pic"></p>
+                <p>Use arrow keys to navigate...<img src="images/Navigation keys.png" alt="arrow keys" class="pic">
+                </p>
                 <p>... or press "show control buttons" after you press PLAY.</p>
                 <p>Press <kbd>SPACE</kbd> to pause the game.</p>
             </section>
         </article>
         <footer>
             <a href="https://github.com/Gluneko/arcade-game" target="_blank">
-            <img src="images/git_logo.png" alt="GitHub Logo" class="social-icon"></a>
+                <img src="images/git_logo.png" alt="GitHub Logo" class="social-icon">
+            </a>
         </footer>
     </div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
 </body>
+
 </html>

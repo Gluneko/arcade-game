@@ -12,19 +12,19 @@
  * This engine is available globally via the Engine variable and it also makes
  * the canvas' context (ctx) object globally available.
  */
-var level1=function(){
+var level1 = function() {
     /* Transfer point */
     ctx.drawImage(Resources.get('images/Ramp South.png'), 0, -30);
-    for (col = 1; col < 6; col++) {
-        drawWater(col*101,-30);
+    for (var col = 1; col < 6; col++) {
+        drawWater(col * 101, -30);
     }
     /* First row */
     for (col = 0; col < 6; col++) {
         ctx.drawImage(Resources.get('images/stone-block.png'), col * 101, 33);
     }
-     /*Second Row */
+    /*Second Row */
     for (col = 0; col < 3; col++) {
-        drawWater(col*101,125);
+        drawWater(col * 101, 125);
     }
     for (col = 3; col < 6; col++) {
         ctx.drawImage(Resources.get('images/Dirt Block.png'), col * 101, 116);
@@ -78,65 +78,11 @@ var level1=function(){
     ctx.drawImage(Resources.get('images/Tree Ugly.png'), 0, 175);
     ctx.drawImage(Resources.get('images/Tree Short.png'), 204, 345);
 
-}
+};
 
-// var level2=function() {
-//     for (col = 0; col < 6; col++) {
-//         drawWater(col*101,-30);
-//     }
-//     /*First Row */
-//     for (col = 0; col < 6; col++) {
-//         ctx.drawImage(Resources.get('images/Dirt Block.png'), col * 101, 53);
-//     }
-//     /*Second Row */
-//     for (col = 0; col < 6; col++) {
-//         ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 136);
-//     }
-//     ctx.drawImage(Resources.get('images/Rock.png'), 1 * 101, 101);
-//     ctx.drawImage(Resources.get('images/Rock.png'), 2 * 101, 101);
-//     /*Third Row */
-//     for (col = 1; col < 3; col++) {
-//         drawWater(col*101,219);
-//     }
-//     ctx.drawImage(Resources.get('images/Wall Block.png'), 3 * 101, 219);
-
-//     for (col = 4; col < 6; col++) {
-//         drawWater(col*101,219);
-//     }
-//     ctx.drawImage(Resources.get('images/Wall Block.png'), 0, 219);
-//     /*Fourth Row */
-//     for (col = 0; col < 2; col++) {
-//         ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 302);
-//     }
-//     for (col = 3; col < 6; col++) {
-//         ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 302);
-//     }
-//     drawWater(202,302);
-//     /*Fifth Row */
-//     for (col = 3; col < 6; col++) {
-//         ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 385);
-//     }
-//     ctx.drawImage(Resources.get('images/Ramp North.png'), 3 * 101, 382);
-//     for (col = 0; col < 3; col++) {
-//         drawWater(col*101,385);
-//     }
-//     /*Sixth Row */
-//     for (col = 4; col < 6; col++) {
-//         ctx.drawImage(Resources.get('images/Shadow South.png'), col * 101, 423);
-//     }
-//     for (col = 0; col < 6; col++) {
-//         ctx.drawImage(Resources.get('images/stone-block.png'), col * 101, 468);
-//     }
-//     /*Seventh Row */
-//     for (col = 1; col < 6; col++) {
-//         drawWater(col*101,560);
-//     }
-//     ctx.drawImage(Resources.get('images/Ramp South.png'), 0, 521);
-// };
-
-var level2=function() {
+var level2 = function() {
     for (col = 0; col < 6; col++) {
-        drawWater(col*101,-30);
+        drawWater(col * 101, -30);
     }
     /*First Row */
     for (col = 0; col < 6; col++) {
@@ -150,12 +96,12 @@ var level2=function() {
     ctx.drawImage(Resources.get('images/Rock.png'), 2 * 101, 81);
     /*Third Row */
     for (col = 1; col < 3; col++) {
-        drawWater(col*101,199);
+        drawWater(col * 101, 199);
     }
     ctx.drawImage(Resources.get('images/Wall Block.png'), 3 * 101, 199);
 
     for (col = 4; col < 6; col++) {
-        drawWater(col*101,199);
+        drawWater(col * 101, 199);
     }
     ctx.drawImage(Resources.get('images/Wall Block.png'), 0, 199);
     /*Fourth Row */
@@ -165,14 +111,14 @@ var level2=function() {
     for (col = 3; col < 6; col++) {
         ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 282);
     }
-    drawWater(202,282);
+    drawWater(202, 282);
     /*Fifth Row */
     for (col = 3; col < 6; col++) {
         ctx.drawImage(Resources.get('images/grass-block.png'), col * 101, 365);
     }
     ctx.drawImage(Resources.get('images/Ramp North.png'), 3 * 101, 362);
     for (col = 0; col < 3; col++) {
-        drawWater(col*101,365);
+        drawWater(col * 101, 365);
     }
     /*Sixth Row */
     for (col = 4; col < 6; col++) {
@@ -183,34 +129,33 @@ var level2=function() {
     }
     /*Seventh Row */
     for (col = 1; col < 6; col++) {
-        drawWater(col*101,540);
+        drawWater(col * 101, 540);
     }
     ctx.drawImage(Resources.get('images/Ramp South.png'), 0, 521);
 };
-/* If we are drawing water, we will shift the transparency slightly
-                         */
-                         function drawWater (x,y) {
-                        ctx.save();
-                        ctx.globalAlpha = 0.6;
-                        ctx.drawImage(Resources.get('images/water-block.png'), x, y);
-                        ctx.restore();
-                    }
+/**
+ * @description If we are drawing water, we will shift the transparency slightly
+ */
+function drawWater(x, y) {
+    ctx.save();
+    ctx.globalAlpha = 0.6;
+    ctx.drawImage(Resources.get('images/water-block.png'), x, y);
+    ctx.restore();
+}
 
 /* Predefine the variables we'll be using within this scope,
-* create the canvas element, grab the 2D context for that canvas
-* set the canvas elements height/width and add it to the DOM.
-*/
+ * create the canvas element, grab the 2D context for that canvas
+ * set the canvas elements height/width and add it to the DOM.
+ */
 var canvas = document.createElement('canvas'),
-        ctx = canvas.getContext('2d'),
-        lastTime;
+    ctx = canvas.getContext('2d'),
+    lastTime;
 
 canvas.width = 606;
 canvas.height = 650;
 
 var Engine = (function() {
     $("#canvas").append(canvas);
-
-    // $('#canvas').append(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -229,28 +174,28 @@ var Engine = (function() {
          * our update function since it may be used for smooth animation.
          * in case of game pause, game over or end game no updates will run.
          */
-         if(newGame.gameRun===true&&!newGame.paused&&!newGame.gameOver&&
-            !newGame.endGame){
-            update(dt,now);
+        if (newGame.gameRun === true && !newGame.paused && !newGame.gameOver &&
+            !newGame.endGame) {
+            update(dt, now);
             render(now);
         }
 
         //displaying call for help at the beginning of the game
-        if(newGame.gameRun===true&&newGame.displayMessage===true) {
-            textDrawer("Oooops...My little princess is lost!",canvas.width/2,canvas.height/2+100);
-            textDrawer("Help me find her in the forest!",canvas.width/2,canvas.height/2+140);
+        if (newGame.gameRun === true && newGame.displayMessage === true) {
+            textDrawer("Oooops...My little princess is lost!", canvas.width / 2, canvas.height / 2 + 100);
+            textDrawer("Help me find her in the forest!", canvas.width / 2, canvas.height / 2 + 140);
         }
 
         //if the endGame is true runs the end animation
-        if(newGame.endGame===true) {
+        if (newGame.endGame === true) {
             renderEndGame();
         }
 
         //after few seconds status changes and end message appears
-        if(newGame.finishedGame===true){
-            ctx.globalAlpha=1;
-            textDrawer("YOU MADE IT!",canvas.width/2,canvas.height/2);
-            textDrawer("Press SPACE to start again!",canvas.width/2,canvas.height/2+40);
+        if (newGame.finishedGame === true) {
+            ctx.globalAlpha = 1;
+            textDrawer("YOU MADE IT!", canvas.width / 2, canvas.height / 2);
+            textDrawer("Press SPACE to start again!", canvas.width / 2, canvas.height / 2 + 40);
         }
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
@@ -276,7 +221,7 @@ var Engine = (function() {
     /* This function is called by main (our game loop) and itself calls all
      * of the functions which may need to update entity's data.
      */
-    function update(dt,now) {
+    function update(dt, now) {
         updateEntities(dt);
         checkCollisions(now);
     }
@@ -290,7 +235,7 @@ var Engine = (function() {
      */
     function updateEntities(dt) {
         player.update(dt);
-        items.forEach( function(item) {
+        items.forEach(function(item) {
             item.update();
         });
         allEnemies.forEach(function(enemy) {
@@ -298,31 +243,24 @@ var Engine = (function() {
         });
     }
 
-    //check collisions, if player touches an enemy or an object.
+    //Check collisions, if player touches an enemy or an object.
     //If enemy, function call player.colLision which will deduce life or change status
     //to game over.
-    function checkCollisions(now){
-        if(player.immortal<now/1000){
-            allEnemies.forEach( function(enemy) {
-                if(player.x<enemy.x+enemy.width && player.x+player.width>enemy.x &&
-                    player.y<enemy.y+enemy.height && player.y+player.height>enemy.y) {
+    function checkCollisions(now) {
+        if (player.immortal < now / 1000) {
+            allEnemies.forEach(function(enemy) {
+                if (player.x < enemy.x + enemy.width && player.x + player.width > enemy.x &&
+                    player.y < enemy.y + enemy.height && player.y + player.height > enemy.y) {
                     console.log('yes');
                     player.collision();
                 }
             });
         }
-        items.forEach( function(item) {
-            // if(item instanceof Selector){
-            //     if(player.x<item.x+item.width && player.x+player.width>item.x &&
-            //     player.y<item.y+item.height && player.y+player.height>item.y-60) {
-            //         item.status="picked";
-            //     }
-            // }else{
-            if(player.x<item.x+item.width && player.x+player.width>item.x &&
-            player.y<item.y+item.height && player.y+player.height>item.y) {
-                item.status="picked";
+        items.forEach(function(item) {
+            if (player.x < item.x + item.width && player.x + player.width > item.x &&
+                player.y < item.y + item.height && player.y + player.height > item.y) {
+                item.status = "picked";
             }
-            // }
         });
     }
     /* This function initially draws the "game level", it will then call
@@ -332,9 +270,9 @@ var Engine = (function() {
      * they are just drawing the entire screen over and over.
      */
     function render() {
-        if(player.level==="level1"){
+        if (player.level === "level1") {
             level1();
-        }else if(player.level==="level2"){
+        } else if (player.level === "level2") {
             level2();
         }
         renderEntities();
@@ -352,27 +290,27 @@ var Engine = (function() {
             enemy.render();
         });
         player.render();
-        items.forEach( function(item) {
+        items.forEach(function(item) {
             item.render();
         });
         lifeCounter.render();
     }
 
     //textDrawer is used to display text messages on canvas
-    function textDrawer(text,x,y){
-        ctx.font="28px Luckiest Guy";
-        ctx.textAlign="center";
-        ctx.strokeStyle="black";
-        ctx.lineWidth=3;
-        ctx.strokeText(text,x,y);
-        ctx.fillStyle="white";
-        ctx.fillText(text,x,y);
+    function textDrawer(text, x, y) {
+        ctx.font = "28px Luckiest Guy";
+        ctx.textAlign = "center";
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 3;
+        ctx.strokeText(text, x, y);
+        ctx.fillStyle = "white";
+        ctx.fillText(text, x, y);
     }
 
     //reset is used to display message when game is paused or when it is game over
     function reset() {
-        if(!newGame.gameRun&&!newGame.finishedGame||newGame.paused===true){
-            textDrawer("Press SPACE to start",canvas.width/2,canvas.height/2);
+        if (!newGame.gameRun && !newGame.finishedGame || newGame.paused === true) {
+            textDrawer("Press SPACE to start", canvas.width / 2, canvas.height / 2);
         }
 
         //game over changes background to greyscale and displayes text
@@ -400,7 +338,6 @@ var Engine = (function() {
     //http://codepen.io/rachsmith/blog/hack-physics-and-javascript-1
     //"A super simple and super fun example - let’s make a particle fountain!"
     //Instead of drawing squares I used Star.png
-
 
     initParticles();
     var particles = [];
@@ -503,31 +440,31 @@ var Engine = (function() {
 });
 
 //Jquery controls for displaying canvas
-$("#play").click(function(){
+$("#play").click(function() {
     Engine();
     $("#play").hide();
     $("#show").show();
-    $(".menu").css("margin-top",0);
+    $(".menu").css("margin-top", 0);
 });
 
 //Jquery controls for displaying control buttons
 //Including changing adding css so if controls are hidden canvas is in the middle
-$("#show").click(function(){
-    $(".control").toggle("slow",function(){
+$("#show").click(function() {
+    $(".control").toggle("slow", function() {
         cssChanger();
-    })
+    });
 });
 
-var cssChanger=function () {
-    if($(".control").css("display")!=="none"){
-        $(".game").css("float","left");
-        $(".game").css("width","60%");
-    } else if($(".control").css("display")==="none"){
-        $(".game").css("float","none");
-        $(".game").css("width","100%");
+var cssChanger = function() {
+    if ($(".control").css("display") !== "none") {
+        $(".game").css("float", "left");
+        $(".game").css("width", "60%");
+    } else if ($(".control").css("display") === "none") {
+        $(".game").css("float", "none");
+        $(".game").css("width", "100%");
     }
-}
+};
 
-$("#ins").click(function(){
+$("#ins").click(function() {
     $("#ins-list").slideToggle("slow");
 });

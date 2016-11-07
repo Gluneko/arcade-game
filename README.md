@@ -1,6 +1,26 @@
-frontend-nanodegree-arcade-game
-===============================
+###Udacity Front-End Web Developer Nanodegree – Project 05
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+#Classic Arcade Game Clone - Rescue The Princess
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+###Get started
+
+- Download the project from Github and open index.html.
+- You need an active internet connection since project uses Google fonts and jQuery.
+- Click play button.
+- For additional controls press "show control buttons" above the game.
+- Click "space" on the keyboard once the text appears or press a "space" button.
+- Use arrows or on-screen buttons to control player.
+- Press "space" to pause the game.
+
+###Game Rules
+
+- the goal is to rescue the princess and back to the house. Follow the star markers to find her.
+- There are two levels in the game, princess is in the second one, you must bring her back to complete a game.
+- Avoid touching bugs.
+- If you touch a bug you lose a life, if you have no lives left game is over.
+- If you have lives left and you touch a bug, you become immortal for 2s.
+- If you carry the princess and you touch a bug, the princess will go back to original location.
+
+###Reference
+
+- [Classic Arcade Game Clone – "Find a Key"](https://github.com/TheFullResolution/FrontEnd-NanoDeegree-03_Classic_Arcade_Game) by Jedrzej Lewandowski
