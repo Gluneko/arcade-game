@@ -156,23 +156,45 @@ var messageStart = function() {
 };
 
 /**
+ * @description Superclass of all the following classes
+ * @constructor
+ */
+var Character = function(x, y, sprite, width, height, status, renderStatus) {
+    this.x = x;
+    this.y = y;
+    this.sprite = sprite;
+    this.width = width;
+    this.height = height;
+    this.status = status;
+    this.renderStatus = renderStatus;
+};
+
+Character.prototype.update = function() {
+    this.checkStatus();
+};
+
+Character.prototype.render = function() {
+    if (this.renderStatus === 'yes') {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+};
+
+Character.prototype.checkStatus = function() {
+
+};
+
+/**
  * @description Star object can be collected and adds to the lifecount so player can be survive
  * touching the enemy
  * @constructor
  */
 var Star = function(x, y) {
-    this.x = x;
-    this.y = y;
-    this.sprite = 'images/Star.png';
-    this.width = 40;
-    this.height = 40;
-    this.status = 'onground';
-    this.renderStatus = 'yes';
+    Character.call(this, x, y, 'images/Star.png', 40, 40, 'onground', 'yes');
 };
 
-Star.prototype.update = function() {
-    this.checkStatus();
-};
+// Subclass of character uses inheritance
+Star.prototype = Object.create(Character.prototype);
+Star.prototype.constructor = Star;
 
 /**
  * @description Checks if star was picked, if yes it adds one to lifeCount
@@ -184,21 +206,17 @@ Star.prototype.checkStatus = function() {
         this.renderStatus = 'no';
     }
 };
-Star.prototype.render = function() {
-    if (this.renderStatus === 'yes') {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
-};
 
 /**
  * @description Appears on top of screen and shows how many lives player has for use
  * @constructor
  */
 var LifeCounter = function(x, y) {
-    this.x = x;
-    this.y = y;
-    this.sprite = 'images/Heart.png';
+    Character.call(this, x, y, 'images/Heart.png');
 };
+
+LifeCounter.prototype = Object.create(Character.prototype);
+LifeCounter.prototype.constructor = LifeCounter;
 
 LifeCounter.prototype.render = function() {
     ctx.font = '50px Luckiest Guy';
@@ -214,18 +232,11 @@ LifeCounter.prototype.render = function() {
  * @constructor
  */
 var Princess = function(x, y) {
-    this.x = x;
-    this.y = y;
-    this.sprite = 'images/char-princess-girl.png';
-    this.width = 20;
-    this.height = 50;
-    this.status = 'onground';
-    this.renderStatus = 'yes';
+    Character.call(this, x, y, 'images/char-princess-girl.png', 20, 50, 'onground', 'yes');
 };
 
-Princess.prototype.update = function() {
-    this.checkStatus();
-};
+Princess.prototype = Object.create(Character.prototype);
+Princess.prototype.constructor = Princess;
 
 Princess.prototype.checkStatus = function() {
     if (this.status === 'picked') {
@@ -237,38 +248,17 @@ Princess.prototype.checkStatus = function() {
     }
 };
 
-Princess.prototype.render = function() {
-    if (this.renderStatus === 'yes') {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
-};
-
 /**
  * @description Transfer points showing the way for the player, each selector has unique
  * events therefore their checkStatus functions are not defined in prototype
  * @constructor
  */
 var Selector = function(x, y) {
-    this.x = x;
-    this.y = y;
-    this.sprite = 'images/Selector.png';
-    this.width = 80;
-    this.height = 50;
-    this.status = 'onground';
-    this.renderStatus = 'yes';
+    Character.call(this, x, y, 'images/Selector.png', 80, 50, 'onground', 'yes');
 };
 
-Selector.prototype.checkStatus = function() {};
-
-Selector.prototype.render = function() {
-    if (this.renderStatus === 'yes') {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
-};
-
-Selector.prototype.update = function() {
-    this.checkStatus();
-};
+Selector.prototype = Object.create(Character.prototype);
+Selector.prototype.constructor = Selector;
 
 //Object selectors being created now, so unique checkStatus can be assigned.
 var level1Selector = new Selector(0, -70);
@@ -347,16 +337,15 @@ var endMessageTime = function() {
  * @param {number} rate - The speed of the bug moving
  */
 var Enemy = function(x1, x2, y, rate) {
-    this.x = x1 + 20;
-    this.y = y;
+    Character.call(this, x1 + 20, y, 'images/enemy-bug.png', 70, 30);
     this.rate = rate;
     this.direction = 'right';
     this.x1 = x1;
     this.x2 = x2;
-    this.sprite = 'images/enemy-bug.png';
-    this.width = 70;
-    this.height = 30;
 };
+
+Enemy.prototype = Object.create(Character.prototype);
+Enemy.prototype.constructor = Enemy;
 
 /**
  * @description Update the enemy's position, required method for game
@@ -414,19 +403,18 @@ Enemy.prototype.render = function() {
  * @constructor
  */
 var Player = function() {
-    this.x = 505;
-    this.y = 505;
-    this.sprite = 'images/char-boy.png';
+    Character.call(this, 505, 505, 'images/char-boy.png', 20, 40);
     this.state = 'stand';
     this.location = 'block1';
-    this.width = 20;
-    this.height = 40;
     this.lifeCount = 3;
     this.rescueStatus = 0;
     this.immortal = 0;
     this.level = 'level1';
     this.levelBlocks = level1Blocks;
 };
+
+Player.prototype = Object.create(Character.prototype);
+Player.prototype.constructor = Player;
 
 /**
  * @description Update function called from Engine()
