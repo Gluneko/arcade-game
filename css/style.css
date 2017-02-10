@@ -1,0 +1,172 @@
+/*body*/
+html,
+body {
+    font-family: 'Special Elite', cursive;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 98%;
+}
+
+/*content*/
+.container {
+    position: relative;
+ /* needed for footer positioning*/
+    margin: 0 auto;
+ /* center, not in IE5 */
+    height: auto !important;
+ /* real browsers */
+    height: 100%;
+ /* IE6: treaded as min-height*/
+    max-width: 960px;
+    min-height: 100%;
+ /* real browsers */;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: 0.2s ease-in-out;
+}
+
+h1 {
+    font: 2.5em 'Luckiest Guy', cursive;
+    color: #86d3e3;
+}
+
+canvas {
+    max-width: 550px;
+}
+
+#ins-list {
+    font: italic 0.6em 'Special Elite', cursive;
+}
+
+p {
+    padding-top: 10px;
+}
+
+.pic {
+    width: 50px;
+    margin: 0 20px;
+}
+
+.menu-item a:link,
+.menu-item a:visited {
+    text-decoration: none;
+    color: #ff8590;
+    clear: both;
+}
+
+.menu-item a:hover,
+.menu-item a:active {
+    text-decoration: none;
+    color: #86d3e3;
+    clear: both;
+}
+
+.menu-item {
+    margin: 10px 0;
+    font: 'Luckiest Guy', cursive;
+    width: 100%;
+    clear: both;
+}
+
+.menu {
+    margin-top: 20%;
+    font-size: 2em;
+    padding-bottom: 10%;
+}
+
+#show,
+#ins-list {
+    display: none;
+}
+
+.btn {
+    display: inline-block;
+    border-radius: 20%;
+    color: #fff;
+    font-size: 18px;
+    background: #86d3e3;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    width: 60px;
+    -webkit-user-select: none;
+ /* disable selection/Copy of UIWebView */
+    -webkit-touch-callout: none;
+ /* disable the IOS popup when long-press on a link */;
+}
+
+.game {
+    width: 100%;
+    float: none;
+    transition: 0.5s ease-in-out;
+}
+
+.control {
+    width: 40%;
+    float: right;
+    display: none;
+    margin-top: 20%;
+}
+
+footer {
+    font-size: 0.78em;
+    text-align: center;
+    clear: both;
+    color: #ccc;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.social-icon {
+    transition: 0.5s ease-in-out;
+    width: 40px;
+    margin: 0 10px;
+}
+
+.social-icon:hover {
+    -webkit-transform: scale(1.2,1.2);
+    -moz-transform: scale(1.2,1.2);
+    -o-transform: scale(1.2,1.2);
+    transform: scale(1.2,1.2);
+}
+
+/*responsive*/
+@media only screen and (max-width: 1000px) {
+    canvas {
+        max-width: 450px;
+    }
+
+    .container {
+        max-width: 760px;
+    }
+
+    .btn {
+        width: 45px;
+        font-size: 15px;
+    };
+}
+
+@media only screen and (max-width: 735px) {
+    canvas {
+        max-width: 350px;
+    }
+
+    .container {
+        max-width: 660px;
+    }
+
+    .btn {
+        width: 35px;
+        font-size: 12px;
+    }
+
+    .menu-item {
+        padding-bottom: 10px;
+    };
+}
